@@ -1,0 +1,4 @@
+**/__pycache__
+*.ipynb
+server.ini
+nohup.out
