@@ -4,7 +4,7 @@ from db_config import db_init as db
 # define doctor Model Class
 class Doctors(db.Model):
     __tablename__ = 'doctor'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Doctor_ID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     account = db.Column(db.String(64), unique=True, nullable=False,default='新用户')
     password = db.Column(db.String(64), nullable=False)
     gender = db.Column(db.Integer, nullable=True, default=0)
@@ -16,7 +16,7 @@ class Doctors(db.Model):
 
     def __repr__(self):
         # print('model')
-        return f'<Doctor id:{self.id} account:{self.account}>'
+        return f'<Doctor id:{self.Doctor_ID} account:{self.account}>'
 
 def Model_commit():
     ans = 0
@@ -33,6 +33,6 @@ def Model_add_doctor(doctor):
     except:
         return 1,None
     ans = Model_commit()
-    id = doctor.id
+    id = doctor.Doctor_ID
     return ans,id
 

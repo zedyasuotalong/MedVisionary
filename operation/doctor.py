@@ -10,7 +10,7 @@ import sys
 class Doctor_opration():
     def __init__(self):
         # DEBUG(func='Doctor_opration/__init__')
-        self.__fields__ = ['id','account','password','gender','age','phone','email','level','reg_time'] 
+        self.__fields__ = ['Doctor_ID','account','password','gender','age','phone','email','level','reg_time'] 
 
     def _all(self):
         DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
@@ -18,9 +18,9 @@ class Doctor_opration():
         DEBUG(doctor_list=doctor_list)
         return doctor_list
     
-    def _info(self, id):
+    def _info(self, Doctor_ID):
         DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
-        doctor_list = Doctors.query.filter_by(id=id).first()
+        doctor_list = Doctors.query.filter_by(Doctor_ID=Doctor_ID).first()
         DEBUG(doctor_list=doctor_list)
         return doctor_list
     
@@ -31,9 +31,9 @@ class Doctor_opration():
 
         return doctor_list
     
-    def _update(self, id, dict_value):
+    def _update(self, Doctor_ID, dict_value):
         DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
-        data = Doctors.query.filter_by(id=id)
+        data = Doctors.query.filter_by(Doctor_ID=Doctor_ID)
         if data.first() is None:
             return ErrorCode.DOCTOR_ACCOUNT_NONEXISTS
         try:

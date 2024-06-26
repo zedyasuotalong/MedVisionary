@@ -1,4 +1,5 @@
 from utils.debug import DEBUG
+from datetime import datetime
 # 数据模型类===》普通字典
 #    msg/[msg,msg,msg]    属性清单,
 
@@ -14,7 +15,10 @@ def Class_To_Data(data_list,fields,type=0):
             temp = {}
             for f in fields:
                 # DEBUG(f=f)
-                temp[f] = getattr(u,f)
+                d = getattr(u,f)
+                if isinstance(d, datetime):
+                    d = d.strftime('%Y-%m-%d %H:%M:%S')
+                temp[f] = d
             msg_list.append(temp)
     else:   #   obj
         msg_list = {}
