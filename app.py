@@ -15,8 +15,11 @@ print('Server Begins...{}'.format(datetime.datetime.now()))
 
 # doctor模块
 from routes.doctor import doctor
+from routes.patient import patient
 
+#register_blueprint 用于注册一个 Blueprint 对象，以组织和管理路由和视图函数，使代码更加模块化;flask应用app中注册医生视图；
 app.register_blueprint(doctor, url_prefix="/doctor")
+app.register_blueprint(patient,url_prefix="/patient")
 
 @app.route('/')
 def ping():
