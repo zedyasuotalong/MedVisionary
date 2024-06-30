@@ -20,7 +20,7 @@ def Doctor_login(login_type,account,pwd):
     if len(data) == 0:
         return ErrorCode.DOCTOR_ACCOUNT_NONEXISTS,None
     id = dict()
-    id['id'] = data['id']
+    id['doctor_id'] = data['Doctor_ID']
 
     # 手机号，验证码登录
     if login_type == 1:
