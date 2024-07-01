@@ -5,6 +5,8 @@ insert into patients(Patient_Name,Sex,Birth_Date) values("patient1", "男", "202
 insert into patients(Patient_Name,Sex,Birth_Date) values("patient2", "男", "2024-01-01");
 insert into patients(Patient_Name,Sex,Birth_Date) values("patient3", "男", "2024-01-01");
 insert into patients(Patient_Name,Sex,Birth_Date) values("patient4", "男", "2024-01-01");
+insert into patients(Patient_Name,Sex,Birth_Date) values("patient1", "男", "2024-01-01");
+insert into patients(Patient_Name,Sex,Birth_Date) values("patient2", "男", "2024-01-01");
 
 insert into doctorpatient(Doctor_ID,Patient_ID) values(1, 1);
 insert into doctorpatient(Doctor_ID,Patient_ID) values(1, 2);
@@ -17,3 +19,15 @@ insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_
 insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-01-01 11:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
 insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-01-01 11:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
 insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-01-01 11:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 11:22:33", "CT", 1, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 10:22:33", "CT", 1, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 12:22:33", "CT", 1, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 10:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 11:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 12:22:33", "CT", 2, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 11:22:33", "CT", 5, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 10:22:33", "CT", 5, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-02-01 12:22:33", "CT", 5, "some desc", "data series", "CT", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 10:22:33", "CT", 6, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 11:22:33", "CT", 6, "some desc", "data series", "MRI", 100);
+insert into images(Examine_Date,Image_Modality,Patient_ID,Diagnosis_Notes,Image_Data,Device,Number_of_images) values("2024-03-01 12:22:33", "CT", 6, "some desc", "data series", "MRI", 100);

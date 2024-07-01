@@ -36,4 +36,34 @@ class Patient_opration():
         DEBUG(patients_list=patients_list)
         return patients_list
 
+    #query patient by patient id
+    def _by_patient_id(self, patient_id):
+        DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
+        patients_list=(db.session.query(Patients.Patient_ID, Patients.Patient_Name, Images.Examine_Date,Images.Diagnosis_Notes,
+                                        Images.Device,Images.Number_of_images)
+                                        .join(Images).filter(Patients.Patient_ID == patient_id)
+                                        .all())
+        DEBUG(patients_list=patients_list)
+        return patients_list
+
+    #query patient by patient name
+    def _by_patient_name(self, patient_name):
+        DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
+        patients_list=(db.session.query(Patients.Patient_ID, Patients.Patient_Name, Images.Examine_Date,Images.Diagnosis_Notes,
+                                        Images.Device,Images.Number_of_images)
+                                        .join(Images).filter(Patients.Patient_Name == patient_name)
+                                        .all())
+        DEBUG(patients_list=patients_list)
+        return patients_list
+
+    #query {num} patients ordered by descending examine date
+    def _limit_num(self, num):
+        DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
+        patients_list=(db.session.query(Patients.Patient_ID, Patients.Patient_Name, Images.Examine_Date,Images.Diagnosis_Notes,
+                                        Images.Device,Images.Number_of_images)
+                             .join(Images, Patients.Patient_ID == Images.Patient_ID)
+                             .order_by(Images.Examine_Date.desc()).limit(num).all())
+        DEBUG(patients_list=patients_list)
+        return patients_list
+
 patient_opration = Patient_opration()
