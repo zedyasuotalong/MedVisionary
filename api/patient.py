@@ -42,3 +42,17 @@ def QueryLimitNum(number):
                     ['Patient_ID', 'Patient_Name', 'Examine_Date', 'Diagnosis_Notes', 'Device', 'Number_of_images'], 0)
     DEBUG(patients_list=patients_list)
     return ErrorCode.OK,patients_list
+
+def Patient_add(info):
+    DEBUG(func=f'{__name__} {sys._getframe().f_code.co_name}')
+    opsuc,id=patient_opration._info_add(info)
+    if opsuc!=0:
+        return opsuc,None
+    return ErrorCode.OK,id
+
+def Relation_add(info):
+    DEBUG(func=f'{__name__} {sys._getframe().f_code.co_name}')
+    establish,id=patient_opration._relation_add(doctor_id=info['Doctor_ID'],patient_id=info['Patient_ID'])
+    if establish!=0:
+        return establish,None
+    return ErrorCode.OK,id
