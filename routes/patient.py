@@ -81,3 +81,50 @@ def query_default_num():
     resp = make_resp(ans,data)
 
     return resp
+
+@patient.route('/add_patient_info',methods=['GET','POST'])
+def add_patient_info():
+    DEBUG(func=f'{__name__} {sys._getframe().f_code.co_name}')
+    ret_code,data = parse_json_data(request.data, ['patient_id','patient_name','gender','birthdate','phone'])
+    if ret_code!=ErrorCode.OK:
+        resp=make_resp(ret_code)
+        return resp
+    
+    #if any(data[key] is None for key in ['patient_id', 'doctor_id']):
+    #    resp = make_resp(ErrorCode.REQUEST_DATA_ERROR)
+    #    return resp 
+    if data['patient_id'] is None:
+        resp = make_resp(ErrorCode.REQUEST_DATA_ERROR)
+        return resp 
+    
+    info={
+        'Patient_ID':data['patient_id'],
+        'Patient_Name':data['patient_name'],
+        'Gender':data['gender'],
+        'Birth_Date':data['birthdate'],
+        'Phone':data['phone']
+    }
+    ans=Patient_add(info)
+    resp=make_resp(ans)
+    return resp
+
+@patient.route('/add_relation',methods=['GET','POST'])
+def add_relation():
+    DEBUG(func=f'{__name__} {sys._getframe().f_code.co_name}')
+    ret_code,data = parse_json_data(request.data, ['doctor_id','patient_id'])
+    if ret_code!=ErrorCode.OK:
+        resp=make_resp(ret_code)
+        return resp
+    
+    if any(data[key] is None for key in ['patient_id', 'doctor_id']):
+        resp = make_resp(ErrorCode.REQUEST_DATA_ERROR)
+        return resp 
+    
+    info={
+        'Doctor_ID':data['doctor_id'],
+        'Patient_ID':data['patient_id']
+    }
+    ans=Relation_add(info)
+    resp=make_resp(ans)
+    return resp
+

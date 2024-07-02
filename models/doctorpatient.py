@@ -4,7 +4,7 @@ class DoctorPatient(db.Model):
     __tablename__ = "doctorpatient"
     Relation_ID=db.Column(db.Integer, primary_key=True, autoincrement=True)
     Doctor_ID = db.Column(db.Integer, db.ForeignKey('doctor.Doctor_ID'), nullable=False)
-    Patient_ID = db.Column(db.Integer, db.ForeignKey('doctor.Patient_ID'), nullable=False)
+    Patient_ID = db.Column(db.Integer, db.ForeignKey('patients.Patient_ID'), nullable=False)
     __table_args__ = (
         db.UniqueConstraint('Doctor_ID', 'Patient_ID', name='unique_doctor_patient'),
     )

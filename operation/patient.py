@@ -66,4 +66,24 @@ class Patient_opration():
         DEBUG(patients_list=patients_list)
         return patients_list
 
+    def _info_add(self,info):
+        DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
+        newpatient=Patients(Patient_ID=info['Patient_ID'],Patient_Name=info['Patient_Name'],Sex=info['Gender'],Birth_Date=info['Birth_Date'],Phone=info['Phone'])
+        db.session.add(newpatient)
+        ans=Model_commit()
+        DEBUG(commit_ans=ans)
+        if ans != 0:
+            return ErrorCode.ADD_PATIENT_INFO_ERROR
+        return ans
+
+    def _relation_add(self,doctor_id,patient_id):
+        DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')
+        relation=DoctorPatient(Doctor_ID=doctor_id,Patient_ID=patient_id)
+        db.session.add(relation)
+        ans = Model_commit()
+        DEBUG(commit_ans=ans)
+        if ans != 0:
+            return ErrorCode.ADD_RELATION_ERROR
+        return ans 
+
 patient_opration = Patient_opration()
