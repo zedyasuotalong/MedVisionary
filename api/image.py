@@ -45,6 +45,6 @@ def Image_add(patient_id,file):
         'ImageType': dicom_data.get((0x0008, 0x0061), 'Unknown').value if dicom_data.get((0x0008, 0x0061)) else 'Unknown'
     }
     #print(image_info)
-    ans = image_opration._add(patient_id,image_info,dicom_data)
+    ans,id = image_opration._add(patient_id,image_info,dicom_data)
     DEBUG(ans=ans)
-    return ans
+    return ans,id

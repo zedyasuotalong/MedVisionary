@@ -17,12 +17,11 @@ class Image_opration():
         #newimage=Images(Patient_ID='2024002624',Examine_Date=file_info['StudyDate'],
         #                Image_Modality='CT',Body_Part="unkown",
         #                Diagnosis_Notes="unkown",Image_data=file)
-        db.session.add(newimage)
-        ans = Model_commit()
+        ans,id = Model_add_image(newimage)
         DEBUG(add_image=ans)
         if ans != 0:
-            return ErrorCode.IMAGES_ADD_ERROR
-        return ans
+            return ErrorCode.IMAGES_ADD_ERROR,None
+        return ans,id
 
     def _imagesall(self,patients_list):
         DEBUG(func=f'{__name__} {self.__class__.__name__} {sys._getframe().f_code.co_name}')

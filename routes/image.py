@@ -23,5 +23,5 @@ def upload():
     file = data['file']
     ans = Image_add(patient_id,file)
     DEBUG(ans=ans)
-    resp = make_resp(ans)
-    return resp
+    resp,data = make_resp(ans)
+    return resp,data
