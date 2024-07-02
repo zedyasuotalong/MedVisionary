@@ -15,7 +15,18 @@ class ErrorCode:
     DELETE_DOCTOR_INFO_ERROR            = 1011
 
     # error codes for patient
-    # TODO
+    PATIENT_INFO_EXISTS         =2001
+    RELATION_EXISTS             =2002
+    PATIENT_INFO_NONEXISTS      =2003
+    RELATION_NONEXISTS          =2004
+    ADD_RELATION_ERROR          =2005
+    ADD_PATIENT_INFO_ERROR      =2006
+    PATIENT_OF_DOCTOR_NONEXISTS =2007
+    PATIENT_RELATION_BOTH_EXISTS=2008
+
+    #error codes for images
+    IMAGES_INFO_NONEXISTS       =3001
+    IMAGES_ADD_ERROR            =3002
 
     # other error codes
     DB_CONNECTION_ERROR         = 8001
@@ -44,6 +55,20 @@ class ErrorCode:
         MISSING_REQUIRED_PARAMS             : "missing required params",
         FILE_TOO_LARGE                      : "file too large",
         REQUEST_DATA_ERROR                  : "request data error",
+
+        #error descriptions for patient
+        PATIENT_INFO_EXISTS                 :"patient info exists",
+        RELATION_EXISTS                     :"relationship between patient and doctor exists",
+        PATIENT_INFO_NONEXISTS              :"patient info nonexists",
+        RELATION_NONEXISTS                  :"relationship between patient and doctor nonexists",
+        ADD_RELATION_ERROR                  :"add relation error",
+        ADD_PATIENT_INFO_ERROR              :"add patient info error",
+        PATIENT_OF_DOCTOR_NONEXISTS         :"patients of the doctor nonexists",
+        PATIENT_RELATION_BOTH_EXISTS        :"patient and relation both exists",
+
+        IMAGES_INFO_NONEXISTS               :"images info nonexists",
+        IMAGES_ADD_ERROR                    :"image add error"
+
     }
 
     @staticmethod
